@@ -1,0 +1,20 @@
+<!-- Show Quote 
+On clicking on button, display the quote given in p tag in console -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="showQuote()">Show Quote in console</button>
+  <p id="quote">Talk is cheap Show me the code</p>
+</body>
+</html>
+<script>
+  //write js here
+let Quote = document.getElementById('quote')  ;
+function showQuote() {
+    console.log(Quote.innerText);
+}
+
+</script>
