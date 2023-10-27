@@ -1,0 +1,94 @@
+<!-- Mini Calculator
+Create a mini calculator application, which has following functionalities
+Addition
+Subtraction
+Division
+Multiplication
+Your app should have
+Two input boxes which should take two numbers from the user.
+Four Buttons with following text content
+Add
+Subtract
+Divide
+Multiply
+When user enter 2 and 4 and clicks on multiply button, an alert should come with 8 as ans
+When user enter 8 and 4 and clicks on Divide button,an alert should come with 2 as ans -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+    <style>
+        .mini-cal {
+            width: 35%;
+            margin: auto;
+        }
+
+        .input-box {
+            margin-top: 10%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #box1,
+        #box2 {
+            height: 35px;
+            width: 250px;
+            font-size: 25px;
+        }
+
+        .operators-button {
+            margin-top: 5%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .operators-button>button {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mini-cal">
+        <div class="input-box">
+            <input type="number" placeholder="enter 1st Number" id="box1">
+            <input type="number" placeholder="enter 2nd Number" id="box2">
+        </div>
+        <div class="operators-button">
+            <button>Add</button>
+            <button>Subtract</button>
+            <button>Multiply</button>
+            <button>Divide</button>
+        </div>
+    </div>
+    <script>
+        const inputBox1 = document.getElementById('box1');
+        const inputBox2 = document.getElementById('box2');
+        const keys = document.querySelectorAll('.operators-button > button')
+        for (let i = 0; i < keys.length; i++) {
+            // console.log(keys[i].innerText)
+            keys[i].addEventListener('click', function () {
+                if (keys[i].innerText == "Add") {
+                    alert(Number(inputBox1.value)+Number(inputBox2.value))
+                }
+                else if (keys[i].innerText == "Subtract") {
+                    alert(Number(inputBox1.value)-Number(inputBox2.value))
+                }
+                else if (keys[i].innerText == "Multiply") {
+                    alert(Number(inputBox1.value)*Number(inputBox2.value))
+                }
+                else if (keys[i].innerText == "Divide") {
+                    alert(Number(inputBox1.value)/Number(inputBox2.value))
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
