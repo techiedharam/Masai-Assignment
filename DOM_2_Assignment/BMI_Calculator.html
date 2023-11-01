@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            /* background-color: black;
+            color: aliceblue; */
+        }
+        .container {
+            width: 35%;
+            height: 100%;
+            margin: auto;
+            margin-top: 6%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            /* border: 2px solid red; */
+            padding: 30px;
+        }
+        .container  h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            
+        }
+        .container  h2 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+        input {
+            width: 60%;
+            height: 50px;
+            margin-top: 15px;
+            font-size: 30px;
+            padding: 10px;
+        }
+        .container button {
+            display: block;
+            margin-top: 10px;
+            width: 30%;
+            height: 50px;
+            border-radius: 30px;
+            background-color: red;
+            border: none;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+        }
+        .container button:hover {
+            background-color: cyan;
+            color: aliceblue;
+            animation: ease-in;
+        }
+        .result {
+            font-size: 30px;
+        }
+        #dark {
+            margin-top: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 30px;
+            border: none;
+            font-size: 13px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+            margin-left: 90%;
+            font-weight: 700;
+        }
+        #light {
+            margin-top: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 30px;
+            border: none;
+            font-size: 13px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+            margin-left: 90%;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Check your BMI </h1>
+    <h2>Enter your weight and height below to check your BMI result </h2>
+    <h2>Pur your weight here in (KG)</h2>
+    <input type="number" id="input-weight">
+    <h2>And your height in here (CM)</h2>
+    <input type="number" id="input-height">
+    <button id="submit">Calculate BMI</button>
+    <h2 id="result"> </h2>
+</div>
+<button id="dark">Darrk Mode</button>
+<button id="light">Light Mode</button>
+</body>
+    <script>
+        let input1 = document.getElementById("input-weight");
+        let input2 = document.getElementById("input-height");
+        let calculate = document.getElementById("submit");
+        let display = document.getElementById("result");
+        calculate.addEventListener('click',()=> {
+           let BMI = (input1.value / (input2.value/100 * input2.value/100)).toFixed(2) 
+           let report = "";
+           if (BMI <= 18.4) {
+                report = "Under Weight";
+           }
+           else if (BMI >= 18.5 && BMI <= 24.9) {
+                report = "Normal Weight ";
+           }
+           else if (BMI >= 25 && BMI <= 29.9) {
+            report = "Overweight ";
+           }
+           else if (BMI >= 30) {
+                report = "Obese";
+           }
+            display.innerText = "Your BMI is " + BMI + " whcih means You are " + report +".";
+            // bmi.innerText = BMI;
+        })
+
+// For Dark Mode 
+const dark = document.getElementById("dark");
+const light = document.getElementById("light");
+const body = document.querySelector("body");
+dark.addEventListener('click' , ()=> {
+    body.style.color = "white";
+    body.style.backgroundColor = "black";
+})
+light.addEventListener('click' , ()=> {
+    body.style.color = "black";
+    body.style.backgroundColor = "white";
+})
+
+    </script>
+</html>
