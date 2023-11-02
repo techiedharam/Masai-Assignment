@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MIN & MAX LEADERBOARD (DOM)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            margin-top: 10%;
+        }
+
+
+        #display {
+            display: block;
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+        }
+
+        .keys>button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <input type="number" id="min">
+        <label for="min">MIN</label>
+        <input type="number" id="max">
+        <label for="min">MAX</label>
+        <input type="number" id="display">
+        <div class="keys">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+        </div>
+        <button id="enter">ENTER</button>
+    </div>
+
+
+    <script>
+        const min = document.querySelector("#min")
+        const max = document.querySelector("#max")
+        const display = document.querySelector("#display")
+        const keys = document.querySelectorAll(".keys > button")
+        let score = "";
+        for (let i = 0; i < keys.length; i++) {
+            keys[i].addEventListener('click', () => {
+                score += keys[i].innerHTML;
+                display.value = score;
+            })
+        }
+        // Result Script
+        const enter = document.getElementById("enter")
+        enter.addEventListener('click', () => {
+            // min.value = display.value ;
+                display.value = "";
+            if (score < min.value ) {
+                min.value = score;
+                score = "";
+            }
+            else if (score > max.value ) {
+                max.value = score ;
+                score = "";
+            }
+            else {
+                score = "";
+            }
+        })
+
+    </script>
 </body>
+
 </html>
