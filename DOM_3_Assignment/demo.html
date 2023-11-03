@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo File</title>
+</head>
+<body>
+        <img src="" alt="" width="50%">
+        <button id="prev"> < </button>
+        <button id="next"> > </button>
+
+    <script>
+        let imgArr = ["https://upload.wikimedia.org/wikipedia/commons/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg" ,
+                     "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_640.jpg" , 
+                     "https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg" , 
+                     "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2023/06/nature-1686808887.jpg"
+        ]
+        let prev = document.querySelector('#prev');
+        let next = document.querySelector('#next');
+        let image = document.querySelector('img');
+        image.setAttribute('src' , imgArr[0]);
+       let currentImg = 0;
+        prev.addEventListener('click' , () => {
+            currentImg--;
+            if (currentImg < 0) {
+                currentImg = imgArr.length-1;
+            }
+            image.setAttribute('src' , imgArr[currentImg])
+        })
+        next.addEventListener('click' , () => { 
+            currentImg++;
+            if (currentImg >= imgArr.length) {
+                currentImg = 0;
+            }
+            image.setAttribute('src' , imgArr[currentImg])
+        })
+    
+
+    </script>
+</body>
+</html>
