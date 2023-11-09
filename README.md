@@ -24,3 +24,21 @@ This project is a clone of the BigBasket website, created as part of an assignme
 
     1. Open the project in your preferred code editor.
     2. Open index.html in a web browser to view the BigBasket clone.
+
+
+
+   BigBasket-clone/
+│
+├── index.html
+├── styles/
+│   ├── main.css
+│   └── ...
+├── scripts/
+│   ├── main.js
+│   └── ...
+├── images/
+│   ├── product1.jpg
+│   ├── product2.jpg
+│   └── ...
+└── README.md
+
