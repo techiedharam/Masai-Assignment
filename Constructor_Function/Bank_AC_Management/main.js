@@ -24,33 +24,55 @@ function BankAccount(accoutNumber, name, type,balance ,status) {
     this.type = type
     this.balance = balance;
     this.status = status;
+    this.deposit = function(amount) {
+        this.balance += amount;
+        console.log("Successfully Deposited" , amount, "in Your Account");
+    }
+    this.withdraw = function(amount) {
+        if (amount <= this.balance) {
+            this.balance -= amount;
+        }
+        else {
+            console.log("Insufficient balance in your account:" , this.balance)
+        }
+    }
+    this.checkBalance = function () {
+        console.log("Your Current Balanace:" , this.balance)
+    }
+    this.isActive = function() {
+        console.log("Your Account is : " ,this.status)
+    }
 }
-function deposit(amount) {
-    this.balance += amount;
-    console.log(this.balance);
-    // console.log('Hello')
-}
-function withdraw(amount) {
-    this.balance -= amount;
-}
-function checkBalance() {
-    console.log(this.balance)
-}
-function isActive() {
-    console.log(this.status)
-}
+// function deposit(amount) {
+//     this.balance += amount;
+//     console.log(this.balance);
+// }
+// function withdraw(amount) {
+//     this.balance -= amount;
+// }
+// function checkBalance() {
+//     console.log(this.balance)
+// }
+// function isActive() {
+//     console.log(this.status)
+// }
+
+let customer1 = new BankAccount(339926176 , "Dharam" , "Cuurent", 53000 , "Active");
+let customer2 = new BankAccount(339926177 , "Param" , "Saving", 30000 , "Active");
+let customer3 = new BankAccount(339926178 , "Karam" , "Current", 50000 , "Deactive");
+let customer4 = new BankAccount(339926179 , "Dinesh" , "Saving", 56000 , "Active");
+let customer5 = new BankAccount(339926180 , "Ramesh" , "Current", 55000, "Deactive");
+
+customer1.deposit(12500);
+customer1.withdraw(100000);
+customer1.checkBalance();
+customer1.isActive();
 
 
-let customer1 = new BankAccount(339926176 , "Dharam" , "Cuurent", 5300000 , "Active");
-let customer2 = new BankAccount(339926177 , "Param" , "Saving", 300000 , "Active");
-let customer3 = new BankAccount(339926178 , "Karam" , "Current", 505000 , "Deactive");
-let customer4 = new BankAccount(339926179 , "Dinesh" , "Saving", 560000 , "Active");
-let customer5 = new BankAccount(339926180 , "Ramesh" , "Current", 5308000, "Deactive");
-
-deposit.call(customer1 , 12500);
-withdraw.call(customer1 , 1000000);
-checkBalance.call(customer1 , 12500);
-isActive.call(customer1 );
+// deposit.call(customer1 , 12500);
+// withdraw.call(customer1 , 1000000);
+// checkBalance.call(customer1 , 12500);
+// isActive.call(customer1 );
 
 // console.log(customer1); 
 // console.log(customer2); 
