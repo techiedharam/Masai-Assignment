@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+</head>
+
+<body>
+    <h1>Stop Watch</h1>
+    <div class="container">
+        <div class="time-display">
+            <span class="time" id="hr">00</span><span>:</span>
+            <span class="time" id="min"> 00 </span><span>:</span>
+            <span class="time" id="sec"> 00 </span><span>:</span>
+            <span class="time" id="mili-sec"> 00 </span>
+        </div>
+        <div class="button">
+            <button class="btn" id="pause">Pause</button>
+            <button class="btn" id="start">Start</button>
+            <button class="btn" id="reset">Reset</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    const pause = document.getElementById("pause");
+    const start = document.getElementById("start");
+    const reset = document.getElementById("reset");
+    let hour = document.getElementById('hr');
+    let minute = document.getElementById('min');
+    let second = document.getElementById('sec');
+    let milisecond = document.getElementById('mili-sec');
+    let hr = 0;
+    let min = 0;
+    let sec = 0;
+    let miliSec = 0;
+
+    start.addEventListener('click', () => {
+        let interval = setInterval(stopwatch, 10);
+
+        pause.addEventListener('click', () => {
+            clearInterval(interval);
+        })
+
+        function stopwatch() {
+            milisecond.innerHTML = miliSec;
+            miliSec = miliSec + 10;
+            if (miliSec == 1000) {
+                second.innerHTML = ++sec;
+                miliSec = 0;
+            }
+            if (sec == 60) {
+                minute.innerHTML = ++min;
+                sec = 0;
+            }
+            if (min == 60) {
+                hour.innerHTML = ++hr;
+                min = 0;
+            }
+        }
+
+        reset.addEventListener('click', () => {
+            clearInterval(interval);
+            milisecond.innerHTML = "00";
+            second.innerHTML = "00";
+            minute.innerHTML = "00";
+            hour.innerHTML = "00";
+            hr = 0;
+            min = 0;
+            sec = 0;
+            miliSec = 0;
+        })
+    })
+</script>
+
+</html>
