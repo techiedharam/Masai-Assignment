@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    input {
+      width: 40px;
+      text-align: center;
+    }
+
+    #timer {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    #controls {
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 1em;
+      margin: 0 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <label>Hours: <input type="number" id="hours" min="0" value="0"></label>
+  <label>Minutes: <input type="number" id="minutes" min="0" value="5"></label>
+  <label>Seconds: <input type="number" id="seconds" min="0" value="0"></label>
+</div>
+
+<div id="timer">00:05:00</div>
+
+<div id="controls">
+  <button onclick="startTimer()">Start</button>
+  <button onclick="pauseTimer()">Pause</button>
+  <button onclick="resetTimer()">Reset</button>
+</div>
+
+<script>
+  let timer;
+  let totalSeconds;
+
+  function startTimer() {
+    const hours = parseInt(document.getElementById('hours').value) || 0;
+    const minutes = parseInt(document.getElementById('minutes').value) || 0;
+    const seconds = parseInt(document.getElementById('seconds').value) || 0;
+
+    totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+    if (totalSeconds <= 0 || isNaN(totalSeconds)) {
+      alert('Please enter a valid time.');
+      return;
+    }
+
+    timer = setInterval(updateTimer, 1000);
+    updateTimer(); 
+  }
+
+  function updateTimer() {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById('timer').innerText =
+      `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (totalSeconds === 0) {
+      clearInterval(timer);
+      alert('Time is up!');
+    } else {
+      totalSeconds--;
+    }
+  }
+
+  function pauseTimer() {
+    clearInterval(timer);
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    document.getElementById('hours').value = 0;
+    document.getElementById('minutes').value = 5;
+    document.getElementById('seconds').value = 0;
+    document.getElementById('timer').innerText = '00:05:00';
+  }
+</script>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+</head>
+
+<body>
+    <h1>Stop Watch</h1>
+    <div class="container">
+        <div class="time-display">
+        <input type = "number" class="time" id="hr">hr</input><span>:</span>
+            <input type = "number" class="time" id="min">min</input><span>:</span>
+            <input type = "number" class="time" id="sec">sec</input><span>:</span>
+        </div>
+        <div class="button">
+            <button class="btn" id="pause">Pause</button>
+            <button class="btn" id="start">Start</button>
+            <button class="btn" id="reset">Reset</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    const pause = document.getElementById("pause");
+    const start = document.getElementById("start");
+    const reset = document.getElementById("reset");
+    let hour = document.getElementById('hr');
+    let minute = document.getElementById('min');
+    let second = document.getElementById('sec');
+    let hr = 0;
+    let min = 0;
+    let sec = 60;
+
+    start.addEventListener('click', () => {
+        let interval = setInterval(timer, 100);
+
+        pause.addEventListener('click', () => {
+            clearInterval(interval);
+        })
+
+        function timer() {
+            min = minute.value;
+            if (min > 0) {
+                if(sec == 0) {
+                    sec = 60;
+                }
+                second.value = sec;
+                sec--;
+            }
+            min--;
+            
+            
+
+        }
+
+        reset.addEventListener('click', () => {
+            clearInterval(interval);
+            second.value = "00";
+            minute.value = "00";
+            hour.value = "00";
+            hr = 0;
+            min = 0;
+            sec = 0;
+        })
+    })
+</script>
+
+</html> -->
