@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SET TIMEOUT AND SET INTERVAL</title>
+</head>
+<body>
+
+    <h1>Hello India</h1>
+    <!-- <img src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""> -->
+
+</body>
+
+<script>
+    let imgArr = ["https://upload.wikimedia.org/wikipedia/commons/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg" ,
+                     "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_640.jpg" , 
+                     "https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg" , 
+                     "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2023/06/nature-1686808887.jpg"
+        ]
+        let temp = 0;
+    let func = function() {
+        let image = document.createElement('img');
+        if(temp == 3) {
+            temp = 0;
+        }
+        image.src =imgArr[temp];
+        document.body.append(image)
+        temp++;
+    }
+
+    setTimeout(func , 1000)
+    
+</script>
+
+</html> 

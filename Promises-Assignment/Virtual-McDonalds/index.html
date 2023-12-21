@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual McDonalds</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container  {
+            width: 60%;
+            height: 80vh;
+            border: 1px solid red;
+            margin: auto;
+            text-align: center;
+        }
+        .display-img {
+            width: 100%;
+            height: 80%;
+        }
+        .display-img img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>  
+    <h1>Food Ordering System</h1>
+    <div class="container">
+        <div class="display-img">
+            <p>Order Id</p>
+            <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1702425600&semt=sph" alt="">
+        </div>
+            <form action="">
+                <ul style="display: flex; justify-content: center;">
+                    <input type="checkbox" id="pizza" name="food1" value="Pizza">
+                    <label for="food1"> Pizza</label><br>
+
+                    <input type="checkbox" id="burger" name="food2" value="Burger">
+                    <label for="food2"> Burger</label><br>
+
+                    <input type="checkbox" id="garlic-bread" name="food3" value="Garlic Bread">
+                    <label for="food1"> Garlic Bread</label><br>
+
+                    <input type="checkbox" id="Pasta" name="food3" value="Pasta">
+                    <label for="food3"> Pasta </label><br>
+
+                    <input type="checkbox" id="cheese-sandwitch" name="food4" value="Cheese Sandwitch">
+                    <label for="food4"> Cheese Sandwitch</label><br>
+
+                    <input type="checkbox" id="french-fries" name="food5" value="French Fries">
+                    <label for="food5"> French Fries </label><br>
+            </ul>
+                <input type="submit" value="Submit">
+              </form>
+    </div>
+
+    <script>
+        let checkButtnss = document.querySelectorAll("input");
+        let form = document.querySelector("form");
+
+let foodList = [
+    {
+        name: "Pizza",
+        id: 1,
+        url: "https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg?crop=0.6666666666666667xw:1xh;center,top&resize=1200:*"
+    },
+    {
+        name: "Burger",
+        id: 2,
+        url: "https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg?crop=0.6666666666666667xw:1xh;center,top&resize=1200:*"
+    },
+    {
+        name: "Garlic Bread",
+        id: 3,
+        url: "https://www.generalmillsindiabfs.in/wp-content/uploads/2020/10/Pillsbury-India-GarlicBread-770x513-1.jpg"
+    },
+    {
+        name: "Pasta",
+        id: 4,
+        url: "https://images.unsplash.com/photo-1528738064262-9f834cbdfda1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8ZmFzdGZvb2R8fHx8fHwxNzAyMDM0OTAw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=500"
+    },
+    {
+        name: "Cheese Sandwitch",
+        id: 5,
+        url: "https://www.indianhealthyrecipes.com/wp-content/uploads/2016/11/veg-cheese-sandwich-recipe-1.jpg"
+    },
+    {
+        name: "French Fries",
+        id: 6,
+        url: "https://images.unsplash.com/photo-1576777647209-e8733d7b851d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8ZmFzdGZvb2R8fHx8fHwxNzAyMDM0OTQ5&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=500"
+    }
+];
+  
+
+form.addEventListener('submit' , (e)=> {
+    e.preventDefault();
+    // alert(checkButtnss[2].value)
+    let foodPromise = Promise (function (response , reject) {
+        response(alert(checkButtnss[2].value))
+    } )
+    foodPromise.then((result) => {
+        alert(result)
+    }).catch((err) => {
+        console.log("Something Went Wrong")
+    });
+}) 
+
+
+    </script>
+</html>

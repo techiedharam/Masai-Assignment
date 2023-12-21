@@ -81,3 +81,5 @@ console.log(nc1);
 
 console.log(nc1.model);
 nc1.colorPrint()
+
+

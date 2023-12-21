@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Button Example</title>
 </head>
 <body>
-    
+
+    <button id="myButton">Click me</button>
+
+    <script>
+        // Your JavaScript code
+        var button = document.getElementById("myButton");
+
+        button.addEventListener("click", function(e) {
+            // alert("Button clicked!");
+            // You can now use the 'e' (event) object if needed
+            console.log(e);
+        });
+    </script>
+
 </body>
 </html>
-<script>
-    let head = document.createElement('h1');
-    head.innerText = " I am Heading";
-
-    // document.querySelector('body').append(head);
-    let body1 = document.querySelector('body')
-        body1.append(head);
-</script>
