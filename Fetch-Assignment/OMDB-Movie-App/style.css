@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+    width: 100%;
+    background: url(../OMDB-Movie-App/assets/filmyworlds.us_.webp);
+    background-repeat: repeat;
+    color: #fff;
+}
+
+
+/* Global CSS */
+.flex {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+section {
+    width: 80%;
+    margin: auto;
+    /* background-color: red; */
+}
+
+/* Nav Bar CSS  */
+#navSection {
+    height: 10vh;
+}
+.navBar {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 0 10px;
+    background-color: rgb(48,49,49);
+}
+/* .navBar .title {
+    width: 50%;
+} */
+.title h2{
+    font-size: 20px;
+}
+.navBar .menu {
+    width: 40%;
+}
+
+.menu-item li {
+    margin: auto;
+    list-style: none;
+    justify-content: space-between;
+}
+.menu-item li a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+}
+
+#moviesList .searchBarContainer {
+    width: 100%;
+    height: 10%;
+    margin: auto;
+    padding: 10px;
+    background-color: black;
+}
+.searchBarContainer #search-movie {
+    width: 95%;
+    height: 30px;
+    padding: 6px;
+}
+.searchBarContainer #searchBtn {
+    width: 4%;
+    height: 30px;
+    background-color: rgb(48,49,49);
+    color: #fff;
+}
+
+/* Movie List Section Page Movie  */
+/* #moviesList {
+    
+} */
+.container {
+    width: 100%;
+    margin: auto;
+    padding: 1%;
+    display: grid;
+    grid-template-columns: repeat(5 , 1fr);
+    grid-gap: 5px 5px;
+}
+.container .box {
+    width: 100%;
+    padding: 5% 5% 10% 5%;
+    background-color: black;
+}
+
+.container .box img {
+    width: 100%;
+}
+.container .box p {
+    font-size: 11px;
+}
+
+/* Movie Details Section CSS  */
+#movieDetailsSection {
+    /* margin-top: -2%; */
+    width: 75%;
+    height: 80vh;
+}
+.movie-container {
+    margin: auto;
+    border: 1px solid red;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.img-box {
+    width: 35%;
+    height: 100%;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: cyan;
+    padding: 0.5%;
+}
+.content-box {
+    width: 65%;
+    height: 100%;
+    border: 2px solid black;
+}
+
+#movie-box > img {
+    width: 90%;
+    height: 90%;
+}
+
+
+/* Footer Section CSS */
+/* #footerSection {
+
+} */
+#footer {
+        width: 97.5%;
+        height: 30px;
+        margin: auto;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* #footer .navigateBtn {
+        
+    } */
+    #footer .navigateBtn button {
+        font-size: 11px;
+        background-color: black;
+        color: #fff;
+    }

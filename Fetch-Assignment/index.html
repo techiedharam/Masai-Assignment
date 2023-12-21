@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+    <style>
+        .body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+        }
+        .root {
+            width: 60%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3 , 1fr);
+            /* border: 1px solid red; */
+        }
+
+        .product-card {
+            width: 100%;
+            height: 60vh;
+            text-align: center;
+            /* padding-top: 10px; */
+            border: 0.25px solid rgb(210, 210, 210);
+        }
+        .productId {
+            width: 15%;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #c45500;
+            color: #fff;
+            font-weight: 700;
+        }
+        .product-card > img {
+            width: 50%;
+            height: 45%;
+            margin: auto;
+        }
+        .product-card p {
+            font-size: 13px;
+            text-align: left;
+            padding-left: 10px;
+            padding-right: 10px;
+            line-height: 12px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1 id="head">API CALL USING FETCH</h1>
+    <div class="root">
+
+    </div>
+</body>
+<script>
+    const h1 = document.getElementById("head");
+    const rootElement = document.querySelector('.root')
+
+    function ShowProductData(productList) {
+        // finalResponse is a Array of Object
+        productList.forEach(function(product) {
+            console.log(product.image);
+            let productCard = document.createElement("div");
+            productCard.className = "product-card";
+
+            let prodeuctId = document.createElement('div');
+            prodeuctId.className = "productId";
+            prodeuctId.textContent = `# ${product.id}`;
+
+            let ProducrImg = document.createElement('img');
+            ProducrImg.src = product.image;
+
+            let productTitle =  document.createElement('p');
+                productTitle.textContent = product.title;
+            
+            let productPrice =  document.createElement('p');
+                productPrice.textContent = `Price: ${product.price}`; 
+            
+            let productCategory = document.createElement('p');
+                productCategory.textContent  = `Category: ${product.category}`;
+            
+            let productRating = document.createElement('p');
+                productRating.textContent = `Rating: ${product.rating.rate}`;
+
+            let ProductNumberOfReviews = document.createElement('p');
+                ProductNumberOfReviews.textContent = `Reviews: ${product.rating.count}`;
+                
+            productCard.append(
+                prodeuctId,
+                ProducrImg ,
+                productTitle ,
+                productPrice,
+                productCategory,
+                productRating,
+                ProductNumberOfReviews
+            );
+            rootElement.append(productCard);
+        });
+    }
+
+
+
+    fetch("https://fakestoreapi.com/products")
+        .then(function (response) {
+            return response.json();
+        }).then((finalResponse) => {
+            ShowProductData(finalResponse);
+        }).catch((err) => {
+            h1.textContent = "Something Went Wrong";
+        })
+
+
+</script>
+
+</html>
