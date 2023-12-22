@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">UpperCase to LowerCase</h1>
+    
+    <script>
+        // Problem 3
+// Write a function to convert a character to lower case
+// Use this function to convert a given word to lower case
+// Use that function to convert an array of strings to array of lower case strings
+// Sample Input ["MA", "SA", "I", "SCH", "OOL"]
+// Sample Output ["ma", "sa", "i", "sch", "ool"]
+// Do this Problem using Arrow function.
+
+
+const input = ["MA", "SA", "I", "SCH", "OOL"];
+const result = [];
+// Sample Output ["ma", "sa", "i", "sch", "ool"]
+// using Arrow Function 
+
+let lowerCaseConverter = (input)=> {
+    input.forEach((str)=>{
+    let bag = "";
+    for(let i = 0; i < str.length; i++) {
+        bag+=str[i].toLowerCase();
+        
+    }
+    result.push(bag);
+    })
+    return result;
+}
+let ans = lowerCaseConverter(input)
+console.log(ans);
+    </script>
+</body>
+</html>
