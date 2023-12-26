@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+</head>
+<body>
+
+  <h1>Counter App</h1>
+  <p id="counter">0</p>
+  <button id="startStopButton">Start</button>
+  <button id="incrementButton">Increment</button>
+  <button id="decrementButton">Decrement</button>
+
+  <script>
+    class Counter {
+      constructor() {
+        this.count = 0;
+        this.intervalId = null;
+        this.autoMode = false;
+        this.startStopButton = document.getElementById('startStopButton');
+        this.incrementButton = document.getElementById('incrementButton');
+        this.decrementButton = document.getElementById('decrementButton');
+        this.counterDisplay = document.getElementById('counter');
+
+        this.startStopButton.addEventListener('click', this.toggleCounter.bind(this));
+        this.incrementButton.addEventListener('click', this.incrementCounter.bind(this));
+        this.decrementButton.addEventListener('click', this.decrementCounter.bind(this));
+      }
+
+      startInterval() {
+        this.intervalId = setInterval(() => {
+          this.count++;
+          this.updateCounterDisplay();
+        }, 1000);
+      }
+
+      stopInterval() {
+        clearInterval(this.intervalId);
+      }
+
+      toggleCounter() {
+        this.autoMode = !this.autoMode;
+
+        if (this.autoMode) {
+          this.startStopButton.textContent = 'Stop';
+          this.startInterval();
+        } else {
+          this.startStopButton.textContent = 'Start';
+          this.stopInterval();
+        }
+      }
+
+      incrementCounter() {
+        if (!this.autoMode) {
+          this.count++;
+          this.updateCounterDisplay();
+        }
+      }
+
+      decrementCounter() {
+        if (!this.autoMode) {
+          this.count--;
+          this.updateCounterDisplay();
+        }
+      }
+
+      updateCounterDisplay() {
+        this.counterDisplay.textContent = this.count;
+      }
+    }
+
+    const counter = new Counter();
+  </script>
+</body>
+</html>
